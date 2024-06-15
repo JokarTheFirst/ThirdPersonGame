@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,22 +8,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variables: Controller
     private Vector2 _input;
     private CharacterController _characterController;
     private Vector3 _direction;
-
+    #endregion
+    #region Variables: Movement
     [SerializeField] private float smoothTime = 0.05f;
     private float _currentVelocity;
     [SerializeField] private float speed;
-
+    [SerializeField] private Movement movement;
+    #endregion
+    #region Variables: Gravity
     private float _gravity = -9.81f;
     [SerializeField] private float gravityMultiplier = 3.0f;
     private float _velocity;
-
+    #endregion
+    #region Variables: Jumping
     [SerializeField] private float jumpPower;
     private int _numberOfJumps;
     [SerializeField] private int maxNumberOfJumps = 2;
-    
+    #endregion
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -30,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
         ApplyGravity();
         ApplyRotation();
         ApplyMovement();
@@ -46,7 +54,10 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        _characterController.Move(_direction * speed * Time.deltaTime);
+        var targetSpeed = movement.isSprinting ? movement.speed * movement.multiplier : movement.speed;
+        movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.acceleration * Time.deltaTime);
+
+        _characterController.Move(_direction * movement.currentSpeed * Time.deltaTime);
     }
 
     private void ApplyGravity()
@@ -73,6 +84,10 @@ public class PlayerController : MonoBehaviour
         _numberOfJumps++;
         _velocity = jumpPower;
     }
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        movement.isSprinting = context.started || context.performed;
+    }
 
     private IEnumerator WaitForLanding()
     {
@@ -83,4 +98,15 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool IsGrounded() => _characterController.isGrounded;
+}
+
+[Serializable]
+public struct Movement
+{
+    public float speed;
+    public float multiplier;
+    public float acceleration;
+
+    [HideInInspector] public bool isSprinting;
+    [HideInInspector] public float currentSpeed;
 }
