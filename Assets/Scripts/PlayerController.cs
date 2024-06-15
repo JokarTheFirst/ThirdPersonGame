@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
     private float _currentVelocity;
     [SerializeField] private float speed;
 
+    private float _gravity = -9.81f;
+    [SerializeField] private float gravityMultiplier = 3.0f;
+    private float _velocity;
+
     
     private void Awake()
     {
@@ -23,15 +27,28 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (_input.sqrMagnitude == 0) return;
-
-        var targetAngle = Mathf.Atan2(_direction.x, _direction.z)*Mathf.Rad2Deg;
-        var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
-        transform.rotation = Quaternion.Euler(0,angle,0);
-
-        _characterController.Move(_direction * speed * Time.deltaTime);
+        ApplyGravity();
+        ApplyRotation();
+        ApplyMovement();
     }
 
+    private void ApplyRotation()
+    {
+        if (_input.sqrMagnitude == 0) return;
+
+        var targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;
+        var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
+        transform.rotation = Quaternion.Euler(0, angle, 0);
+    }
+    private void ApplyMovement()
+    {
+        _characterController.Move(_direction * speed * Time.deltaTime);
+    }
+    private void ApplyGravity()
+    {
+        _velocity += _gravity * gravityMultiplier * Time.deltaTime;
+        _direction.y = _velocity;
+    }
     public void Move(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();
