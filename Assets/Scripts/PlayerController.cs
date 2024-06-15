@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
     private float _velocity;
 
     [SerializeField] private float jumpPower;
-
+    private int _numberOfJumps;
+    [SerializeField] private int maxNumberOfJumps = 2;
     
     private void Awake()
     {
@@ -66,9 +67,19 @@ public class PlayerController : MonoBehaviour
     public void Jump(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-        if (!IsGrounded()) return;
+        if (!IsGrounded() && _numberOfJumps >= maxNumberOfJumps) return;
+        if (_numberOfJumps == 0) StartCoroutine(WaitForLanding());
 
-        _velocity += jumpPower;
+        _numberOfJumps++;
+        _velocity = jumpPower;
+    }
+
+    private IEnumerator WaitForLanding()
+    {
+        yield return new WaitUntil(() => !IsGrounded());
+        yield return new WaitUntil(IsGrounded);
+
+        _numberOfJumps = 0;
     }
 
     private bool IsGrounded() => _characterController.isGrounded;
