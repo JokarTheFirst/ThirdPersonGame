@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityMultiplier = 3.0f;
     private float _velocity;
 
+    [SerializeField] private float jumpPower;
+
     
     private void Awake()
     {
@@ -40,27 +42,34 @@ public class PlayerController : MonoBehaviour
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
         transform.rotation = Quaternion.Euler(0, angle, 0);
     }
+
     private void ApplyMovement()
     {
         _characterController.Move(_direction * speed * Time.deltaTime);
     }
+
     private void ApplyGravity()
     {
-        if (_characterController.isGrounded && _velocity < 0)
-        {
-            _velocity = -1.0f;
-        }
-        else
-        {
-            _velocity += _gravity * gravityMultiplier * Time.deltaTime;
-        }
-
+        if (IsGrounded() && _velocity < 0)  _velocity = -1.0f;
+        
+        else _velocity += _gravity * gravityMultiplier * Time.deltaTime;
         
         _direction.y = _velocity;
     }
+
     public void Move(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();
         _direction = new Vector3(_input.x, 0.0f, _input.y);
     }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        if (!IsGrounded()) return;
+
+        _velocity += jumpPower;
+    }
+
+    private bool IsGrounded() => _characterController.isGrounded;
 }
