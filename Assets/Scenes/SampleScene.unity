@@ -375,16 +375,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af075189e7b90964f8091a55adbeedf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 6
+  multiplier: 2
+  acceleration: 8
+  isSprinting: 0
+  currentSpeed: 0
   smoothTime: 0.05
-  speed: 0
-  movement:
-    speed: 0
-    multiplier: 0
-    acceleration: 0
-    isSprinting: 0
-    currentSpeed: 0
-  gravityMultiplier: 3
-  jumpPower: 0
+  gravityMultiplier: 0.5
+  jumpPower: 1.5
   maxNumberOfJumps: 2
 --- !u!1 &414218180
 GameObject:
@@ -732,7 +730,6 @@ GameObject:
   - component: {fileID: 777144477}
   - component: {fileID: 777144476}
   - component: {fileID: 777144475}
-  - component: {fileID: 777144474}
   - component: {fileID: 777144473}
   - component: {fileID: 777144478}
   m_Layer: 0
@@ -762,27 +759,6 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.73
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &777144474
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777144472}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &777144475
 MeshRenderer:
@@ -863,6 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplier: 1.4
   pickupEffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  duration: 4
 --- !u!1 &1152400044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1117,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 408689146}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -1156,7 +1133,7 @@ MonoBehaviour:
     m_ActionName: Gameplay/Move
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 408689146}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -1176,7 +1153,7 @@ MonoBehaviour:
     m_ActionName: Gameplay/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 408689146}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Sprint
         m_Mode: 0
@@ -1194,7 +1171,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1152400047}
 --- !u!4 &1599225612
 Transform:
   m_ObjectHideFlags: 0
