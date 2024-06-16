@@ -22,15 +22,15 @@ public class SpeedPowerUp : MonoBehaviour
     {
         Instantiate(pickupEffect,transform.position, transform.rotation);
 
-        PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.health *= multiplier;
+        PlayerController stats = player.GetComponent<PlayerController>();
+        stats.speed *= multiplier;
 
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<SphereCollider>().enabled = false;
 
         yield return new WaitForSeconds(duration);
 
-        stats.health /= multiplier;
+        stats.speed /= multiplier;
 
         Destroy(gameObject);
     }

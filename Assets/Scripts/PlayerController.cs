@@ -8,6 +8,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public float speed;
+    public float multiplier;
+    public float acceleration;
+
+    [HideInInspector] public bool isSprinting;
+    [HideInInspector] public float currentSpeed;
+
     #region Variables: Controller
     private Vector2 _input;
     private CharacterController _characterController;
@@ -16,7 +23,7 @@ public class PlayerController : MonoBehaviour
     #region Variables: Movement
     [SerializeField] private float smoothTime = 0.05f;
     private float _currentVelocity;
-    [SerializeField] private float speed;
+    
     [SerializeField] private Movement movement;
     #endregion
     #region Variables: Gravity
@@ -54,10 +61,10 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        var targetSpeed = movement.isSprinting ? movement.speed * movement.multiplier : movement.speed;
-        movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.acceleration * Time.deltaTime);
+        var targetSpeed = isSprinting ? speed * multiplier : speed;
+        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
 
-        _characterController.Move(_direction * movement.currentSpeed * Time.deltaTime);
+        _characterController.Move(_direction * currentSpeed * Time.deltaTime);
     }
 
     private void ApplyGravity()
@@ -86,7 +93,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Sprint(InputAction.CallbackContext context)
     {
-        movement.isSprinting = context.started || context.performed;
+        isSprinting = context.started || context.performed;
     }
 
     private IEnumerator WaitForLanding()
@@ -103,10 +110,5 @@ public class PlayerController : MonoBehaviour
 [Serializable]
 public struct Movement
 {
-    public float speed;
-    public float multiplier;
-    public float acceleration;
-
-    [HideInInspector] public bool isSprinting;
-    [HideInInspector] public float currentSpeed;
+    
 }
