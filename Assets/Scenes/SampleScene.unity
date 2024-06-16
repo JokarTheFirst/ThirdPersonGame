@@ -224,7 +224,8 @@ GameObject:
   - component: {fileID: 408689141}
   - component: {fileID: 408689140}
   - component: {fileID: 408689139}
-  - component: {fileID: 408689144}
+  - component: {fileID: 408689145}
+  - component: {fileID: 408689146}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -349,7 +350,20 @@ Transform:
   - {fileID: 588689273}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &408689144
+--- !u!114 &408689145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408689137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88df169765dfeb94088dd5a54d1ed243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &408689146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,15 +376,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothTime: 0.05
-  speed: 6
+  speed: 0
   movement:
-    speed: 5
-    multiplier: 2
-    acceleration: 20
+    speed: 0
+    multiplier: 0
+    acceleration: 0
     isSprinting: 0
     currentSpeed: 0
-  gravityMultiplier: 1
-  jumpPower: 3
+  gravityMultiplier: 3
+  jumpPower: 0
   maxNumberOfJumps: 2
 --- !u!1 &414218180
 GameObject:
@@ -847,7 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b747f17ba60214581a3ad54a72f704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
+  multiplier: 1.4
+  pickupEffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
 --- !u!1 &1152400044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1140,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 408689144}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -1141,7 +1156,7 @@ MonoBehaviour:
     m_ActionName: Gameplay/Move
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 408689144}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -1161,7 +1176,7 @@ MonoBehaviour:
     m_ActionName: Gameplay/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 408689144}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Sprint
         m_Mode: 0
