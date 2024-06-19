@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class HurtObstacle : MonoBehaviour
 {
+    [SerializeField] float damage = 10f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
-            Debug.Log("Get Hurt!");
-            playerStats.TakeDamage(10);
+            playerStats.TakeDamage(damage);
         }
 
 ;    }
