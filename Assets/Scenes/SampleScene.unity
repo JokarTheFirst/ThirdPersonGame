@@ -1735,6 +1735,7 @@ GameObject:
   - component: {fileID: 1214971567}
   - component: {fileID: 1214971570}
   - component: {fileID: 1214971565}
+  - component: {fileID: 1214971571}
   m_Layer: 0
   m_Name: HurtWall
   m_TagString: Untagged
@@ -1751,7 +1752,7 @@ Transform:
   m_GameObject: {fileID: 1214971563}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.54, y: 0.5, z: -2.49}
+  m_LocalPosition: {x: 0, y: 0.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1862,6 +1863,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1214971571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214971563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4fed2eee4aef44e87a01f5291eceb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: 0, y: 0.5, z: -5}
+  - {x: 10, y: 0.5, z: -5}
+  pointNumber: 0
+  tolerance: 0
+  speed: 4
+  delayTime: 2
+  automatic: 1
 --- !u!1 &1385155563
 GameObject:
   m_ObjectHideFlags: 0
