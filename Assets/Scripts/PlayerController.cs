@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.ParticleSystem;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -16,25 +17,40 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float currentSpeed;
 
     #region Variables: Controller
+
     private Vector2 _input;
     private CharacterController _characterController;
     private Vector3 _direction;
+
     #endregion
     #region Variables: Movement
+
+    [SerializeField] private Movement movement;
     [SerializeField] private float smoothTime = 0.05f;
+    private bool doParticle = true;
     private float _currentVelocity;
     
-    [SerializeField] private Movement movement;
+    #endregion
+    #region Variables: Particles
+
+    [SerializeField] public GameObject _sprintParticle;
+    [SerializeField] public GameObject particlePosition;
+    [SerializeField] private float _particleDuration = 0.05f;
+
     #endregion
     #region Variables: Gravity
+
     private float _gravity = -9.81f;
     [SerializeField] private float gravityMultiplier = 3.0f;
     private float _velocity;
+
     #endregion
     #region Variables: Jumping
+
     [SerializeField] private float jumpPower;
     private int _numberOfJumps;
     [SerializeField] private int maxNumberOfJumps = 2;
+
     #endregion
 
     private void Awake()
@@ -44,11 +60,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
+        if (doParticle && isSprinting )
+        { 
+            StartCoroutine(SpawnParticle()); 
+        }
         ApplyGravity();
         ApplyRotation();
         ApplyMovement();
+        
     }
+   
 
     private void ApplyRotation()
     {
@@ -62,6 +83,7 @@ public class PlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         var targetSpeed = isSprinting ? speed * multiplier : speed;
+        
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
 
         _characterController.Move(_direction * currentSpeed * Time.deltaTime);
@@ -94,6 +116,7 @@ public class PlayerController : MonoBehaviour
     public void Sprint(InputAction.CallbackContext context)
     {
         isSprinting = context.started || context.performed;
+       
     }
 
     private IEnumerator WaitForLanding()
@@ -105,6 +128,15 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool IsGrounded() => _characterController.isGrounded;
+
+    IEnumerator SpawnParticle()
+    {
+        doParticle = false;
+        Instantiate(_sprintParticle, particlePosition.transform.position, particlePosition.transform.rotation);
+        
+        yield return new WaitForSeconds(_particleDuration);
+        doParticle = true;
+    }
 }
 
 [Serializable]
