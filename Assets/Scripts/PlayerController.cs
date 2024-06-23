@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float multiplier;
     public float acceleration;
+    Animator playerAnimator;
 
     [HideInInspector] public bool isSprinting;
     [HideInInspector] public float currentSpeed;
@@ -56,13 +57,15 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (doParticle && isSprinting )
         { 
-            StartCoroutine(SpawnParticle()); 
+            StartCoroutine(SpawnParticle());
+            playerAnimator.SetBool("Sprinting", true);
         }
         ApplyGravity();
         ApplyRotation();
@@ -100,8 +103,10 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        
         _input = context.ReadValue<Vector2>();
         _direction = new Vector3(_input.x, 0.0f, _input.y);
+        
     }
 
     public void Jump(InputAction.CallbackContext context)
