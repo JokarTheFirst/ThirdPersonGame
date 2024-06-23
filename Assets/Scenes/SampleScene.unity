@@ -701,6 +701,7 @@ Transform:
   - {fileID: 414218181}
   - {fileID: 1599225612}
   - {fileID: 588689273}
+  - {fileID: 1126174134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &408689145
@@ -749,6 +750,9 @@ MonoBehaviour:
   isSprinting: 0
   currentSpeed: 0
   smoothTime: 0.05
+  _sprintParticle: {fileID: 1743301284569550, guid: f08990d6dbfe91c4299cef6b6f6f29db, type: 3}
+  particlePosition: {fileID: 1126174133}
+  _particleDuration: 0.05
   gravityMultiplier: 0.5
   jumpPower: 1.5
   maxNumberOfJumps: 2
@@ -1764,6 +1768,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008186815}
   m_CullTransparentMesh: 1
+--- !u!1 &1126174133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126174134}
+  m_Layer: 0
+  m_Name: ParticlePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1126174134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126174133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalScale: {x: 1, y: 0.3, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 408689143}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1152400044
 GameObject:
   m_ObjectHideFlags: 0
