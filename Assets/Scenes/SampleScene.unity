@@ -1545,7 +1545,7 @@ Transform:
   m_GameObject: {fileID: 1152400044}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: -6.970001, y: 7.309302, z: -21.868357}
+  m_LocalPosition: {x: -6.970001, y: 7.0583005, z: -21.868357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1734,27 +1734,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
   m_PrefabInstance: {fileID: 1711740736}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1558420921
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558420919}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c7ccd98e547cd7d48a3876c3d9be924b, type: 3}
-  m_Controller: {fileID: 9100000, guid: b091b65c37e795845bd4f3d291926078, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1558420922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +1810,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.17, z: 0}
 --- !u!114 &1558420925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1880,7 +1859,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.18, z: 0}
 --- !u!1001 &1582768277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2284,7 +2263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.096
+      value: 0.845
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2327,10 +2306,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5465940246521907071, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.27
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5465940246521907071, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465940246521907071, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
@@ -2343,9 +2331,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1126174134}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1558420921}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d631adad7500dbb419a52da05dd887a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1558420924}
@@ -2427,7 +2412,7 @@ Transform:
   m_GameObject: {fileID: 1757568820}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: -6.970001, y: 7.309302, z: -21.868357}
+  m_LocalPosition: {x: -6.970001, y: 7.0583005, z: -21.868357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

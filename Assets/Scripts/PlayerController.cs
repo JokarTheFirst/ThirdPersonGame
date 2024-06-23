@@ -62,8 +62,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
         if (doParticle && isSprinting )
-        { 
+        {
+            Debug.Log("Sprinting");
             StartCoroutine(SpawnParticle());
             playerAnimator.SetBool("Sprinting", true);
         }
