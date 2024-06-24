@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 using static UnityEngine.ParticleSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float multiplier;
     public float acceleration;
-    Animator playerAnimator;
+    public Animator playerAnimator;
 
     [HideInInspector] public bool isSprinting;
     [HideInInspector] public float currentSpeed;
@@ -62,12 +63,21 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (_input == Vector2.zero)
+        {
+            playerAnimator.SetFloat("Vertical", 0);
+        }
+        else if (!isSprinting)
+        {
+            playerAnimator.SetFloat("Vertical", 1);
+            
+        }
         
         if (doParticle && isSprinting )
         {
-            Debug.Log("Sprinting");
+            playerAnimator.SetFloat("Vertical", 2);
             StartCoroutine(SpawnParticle());
-            playerAnimator.SetBool("Sprinting", true);
+            
         }
         ApplyGravity();
         ApplyRotation();
@@ -105,6 +115,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        
         
         _input = context.ReadValue<Vector2>();
         _direction = new Vector3(_input.x, 0.0f, _input.y);
