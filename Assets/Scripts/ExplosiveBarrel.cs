@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ExplosiveBarrel : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class ExplosiveBarrel : MonoBehaviour
             {
                 
                 stats.TakeDamage(_explosionDamage);
-
+                
 
                 var surrondingObjects = Physics.OverlapSphere(transform.position, _explosionRadius);
 
