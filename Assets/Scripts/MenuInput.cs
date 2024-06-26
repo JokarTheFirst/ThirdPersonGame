@@ -8,7 +8,6 @@ public class MenuInput : MonoBehaviour
     bool canReset = false;
     public void QuitGame()
     {
-        Debug.Log("I Quit!");
         Application.Quit();
     }
     public void AllowToReset()
