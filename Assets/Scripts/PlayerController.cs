@@ -115,11 +115,8 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        
-        
         _input = context.ReadValue<Vector2>();
         _direction = new Vector3(_input.x, 0.0f, _input.y);
-        
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -134,7 +131,6 @@ public class PlayerController : MonoBehaviour
     public void Sprint(InputAction.CallbackContext context)
     {
         isSprinting = context.started || context.performed;
-       
     }
 
     private IEnumerator WaitForLanding()
