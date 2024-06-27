@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: 0, y: 1, z: -5}
-  - {x: 10, y: 0.5, z: -5}
-  - {x: 10, y: 0.5, z: 10}
-  - {x: 0, y: 0.5, z: 10}
+  - {x: 0, y: 0, z: -5}
+  - {x: 10, y: 0, z: -5}
+  - {x: 10, y: 0, z: 10}
+  - {x: 0, y: 0, z: 10}
   pointNumber: 0
   tolerance: 0
   speed: 4
@@ -129,7 +129,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.4, y: 1.81, z: 1.4}
-  m_Center: {x: 0, y: 0.27, z: 0}
+  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!114 &8762366498073633594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd3e54cbc832f904d8f5d3b20c31b2a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.549
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd3e54cbc832f904d8f5d3b20c31b2a2, type: 3}
       propertyPath: m_LocalPosition.z
