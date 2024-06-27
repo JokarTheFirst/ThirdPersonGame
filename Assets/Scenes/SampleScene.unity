@@ -1087,11 +1087,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &538002918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1017528275890229303, guid: bbf4b1d07e4ee954abf383db6a295abd, type: 3}
-  m_PrefabInstance: {fileID: 6770523274006194590}
-  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &540509868
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 732962341492547277, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_Name
+      value: HealthPowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.468
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.578
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673136855993383993, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dc9bdc55262149479c4c899bb365bad, type: 3}
 --- !u!1001 &552354730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3705,14 +3757,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPowerUp
       objectReference: {fileID: 0}
-    - target: {fileID: 1017528276153989538, guid: bbf4b1d07e4ee954abf383db6a295abd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859201095674342726, guid: bbf4b1d07e4ee954abf383db6a295abd, type: 3}
-      propertyPath: mesh
-      value: 
-      objectReference: {fileID: 538002918}
     - target: {fileID: 5673136855993383993, guid: bbf4b1d07e4ee954abf383db6a295abd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.3
@@ -3780,3 +3824,4 @@ SceneRoots:
   - {fileID: 1753369684}
   - {fileID: 1669116071375475213}
   - {fileID: 1278329593}
+  - {fileID: 540509868}
