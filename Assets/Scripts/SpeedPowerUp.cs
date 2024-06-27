@@ -8,6 +8,7 @@ public class SpeedPowerUp : MonoBehaviour
     public float multiplier = 1.4f;
 
     public GameObject pickupEffect;
+    public GameObject mesh;
 
     public float duration = 4;
     private void OnTriggerEnter(Collider other)
@@ -15,6 +16,7 @@ public class SpeedPowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartCoroutine(Pickup(other));
+            
         }
     }
 
@@ -25,8 +27,8 @@ public class SpeedPowerUp : MonoBehaviour
         PlayerController stats = player.GetComponent<PlayerController>();
         stats.speed *= multiplier;
 
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<SphereCollider>().enabled = false;
+        mesh.SetActive(false);
+        GetComponent<BoxCollider>().enabled = false;
 
         yield return new WaitForSeconds(duration);
 
