@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
+
 using static UnityEngine.ParticleSystem;
 
 [RequireComponent(typeof(CharacterController))]
