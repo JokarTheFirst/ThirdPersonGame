@@ -21554,6 +21554,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921554550}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1926102628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472613315998883010, guid: d0624111f570df1479d58b359318c831, type: 3}
+  m_PrefabInstance: {fileID: 1669116071375475213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1941794749
 GameObject:
   m_ObjectHideFlags: 0
@@ -24072,6 +24077,14 @@ PrefabInstance:
     - target: {fileID: 4631393083076181566, guid: d0624111f570df1479d58b359318c831, type: 3}
       propertyPath: HasWon.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
+      objectReference: {fileID: 1926102628}
+    - target: {fileID: 4631393083076181566, guid: d0624111f570df1479d58b359318c831, type: 3}
+      propertyPath: HasWon.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631393083076181566, guid: d0624111f570df1479d58b359318c831, type: 3}
+      propertyPath: HasWon.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8418183273439578675, guid: d0624111f570df1479d58b359318c831, type: 3}
       propertyPath: m_Name
